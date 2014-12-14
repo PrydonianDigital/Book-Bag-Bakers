@@ -1,0 +1,101 @@
+/*  
+Theme Name: Book Bag Bakers
+Theme URI: http://www.bookbagbakers.co.uk
+Description: WordPress theme and shop for Book Bag Bakers
+Version: 1
+Author: Mark Duwe
+Author URI: http://www.prydonian.digital
+Tags: 
+License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
+License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
+*/
+@font-face {
+    font-family: "danielbold";
+    src: url("fonts/danielbd-webfont.eot");
+    src: url("fonts/danielbd-webfont.eot?#iefix") format("embedded-opentype"),
+         url("fonts/danielbd-webfont.woff") format("woff"),
+         url("fonts/danielbd-webfont.ttf") format("truetype"),
+         url("fonts/danielbd-webfont.svg#danielbold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "danielregular";
+    src: url("fonts/daniel-webfont.eot");
+    src: url("fonts/daniel-webfont.eot?#iefix") format("embedded-opentype"),
+         url("fonts/daniel-webfont.woff") format("woff"),
+         url("fonts/daniel-webfont.ttf") format("truetype"),
+         url("fonts/daniel-webfont.svg#danielregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-size: 1.2rem;
+	font-weight: 300;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #111;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased !important;
+}
+h1, h2, h3, h4, h5, h6, strong, .navbar ul li > a {
+	font-family: "danielbold", "open sans", sans-serif;
+	font-weight: 600;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	color: #111;
+}
+p, ol, ul {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.2;
+	font-weight: 300;
+	margin-bottom: 16px;
+}
+.header h1 {
+	margin: 0;
+	padding: 0;
+}
+.subheading {
+	padding-top: 30px;
+}
+.navbar {
+	background: #111;
+}
+.navbar ul {
+	line-height: 
+}
+.navbar ul li.active a, .navbar ul li.current-menu-item a, .navbar ul li.current_page_item a, .navbar ul li.current_page_parent a {
+	background: #868d92;
+}
+.alignleft {
+	float: left;
+	margin: 0 20px 0 0;
+}
+.label label {
+	color: #111;
+}
+.label {
+	padding: 10px 10px 10px 0;
+	border-top: 0;
+}
+.value {
+	padding: 10px 10px 10px 0;
+	border-top: 0;
+}
+.variations tr {
+	border-top: 1px solid #e5e5e5;
+}
+h1.entry-title {
+	font-size: 2rem;
+}
+.columns {
+	padding: 0 20px;
+}
+#sidebar p, #sidebar ol, #sidebar ul {
+	font-size: 0.9rem;
+}
+#sidebar h2 {
+	font-size: 1.2rem;
+}
