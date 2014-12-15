@@ -38,10 +38,10 @@ function conway_hall_init()  {
 add_action( 'after_setup_theme', 'conway_hall_init' );
 
 function bbb_scripts() {
-	wp_deregister_script( 'jquery' );
+	//wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', false, '1.11.1', true );
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', false, '2.8.1', false );
-	wp_register_script( 'gumby', get_template_directory_uri() . '/js/libs/gumby.min.js', false, '2.6', true );
+	wp_register_script( 'gumby', get_template_directory_uri() . '/js/libs/gumby.js', false, '2.6', true );
 	wp_register_script( 'owl', get_template_directory_uri() . '/owl-carousel/owl.carousel.min.js', false, '1.4.1', true );
 	wp_register_script( 'capslide', get_template_directory_uri() . '/js/capSlide.js', false, '1.4.1', true );
 	wp_register_script( 'cookie', get_template_directory_uri() . '/js/libs/cookie.js', false, '1.4.1', true );
@@ -122,6 +122,34 @@ function carousel() {
 // Hook into the 'init' action
 add_action( 'init', 'carousel', 0 );
 
+function carousel_meta( $meta_boxes ) {
+	$prefix = '_cmb_';
+	$meta_boxes[] = array(
+		'id' => 'meta',
+		'title' => 'Link URL',
+		'pages' => array('carousel'),
+		'context' => 'normal',
+		'priority' => 'high',
+		'show_names' => true,
+		'fields' => array(
+			array(
+				'name' => __( 'Link URL', 'ch' ),
+				'id'	 => $prefix . 'carousel',
+				'type' => 'text',
+			),
+		),
+	);
+	return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'carousel_meta' );
+
+add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
+function be_initialize_cmb_meta_boxes() {
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'metabox/init.php' );
+	}
+}
+
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
@@ -129,7 +157,7 @@ add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
 
 function my_theme_wrapper_start() {
-	echo '<div id="main" class="nine columns">';
+	echo '<div id="main" class="twelve columns">';
 }
 
 function my_theme_wrapper_end() {
@@ -156,3 +184,50 @@ class Walker_Page_Custom extends Walker_Nav_menu{
 	}
 }
 
+add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
+
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+	ob_start();
+	?>
+	<a class="cart" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="View your shopping cart">
+		<i class="icon-basket"></i><br />
+		<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?><br />
+		<?php echo $woocommerce->cart->get_cart_total(); ?><br />
+	</a>
+	<?php
+	$fragments['a.cart'] = ob_get_clean();
+	return $fragments;
+}
+
+function remove_loop_button(){
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+add_action('init','remove_loop_button');
+
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+add_action( 'bbb_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+add_filter( 'woocommerce_product_tabs' , 'woocommerce_related_products_tab' );
+function woocommerce_related_products_tab( $tabs ) {
+	$tabs['related_products'] = array(
+		'title'    => 'Related Products',
+		'priority' => 25,
+		'callback' => 'woocommerce_product_related_products_tab'
+	);
+	return $tabs;
+}
+// Related Products callback
+function woocommerce_product_related_products_tab() {
+do_action('growdev_after_single_product_summary');
+	do_action('bbb_after_single_product_summary');
+	echo do_shortcode('[related_products]');
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+    unset( $tabs['description'] );
+    return $tabs;
+}

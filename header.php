@@ -16,8 +16,19 @@
 <body <?php body_class(); ?>>
 <div class="header" role="banner">
 	<div class="row">
-		<div class="twelve columns">
-			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /> <?php bloginfo('name'); ?></a></h1>
+		<div class="two columns">
+			<a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /></a>
+		</div>
+		<div class="eight columns">
+			<h1><a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo('name'); ?></a></h1>
+		</div>
+		<div class="two columns">
+			<?php global $woocommerce; ?>
+			<a class="cart" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="View your shopping cart">
+				<i class="icon-basket"></i><br />
+				<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?><br />
+				<?php echo $woocommerce->cart->get_cart_total(); ?>
+			</a>
 		</div>
 	</div>
 </div>

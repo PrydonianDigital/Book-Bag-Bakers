@@ -57,6 +57,14 @@ a:hover {
 	color: #333;
 	text-decoration: underline;
 }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #666;
+	text-decoration: underline;
+}
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: #333;
+	text-decoration: underline;
+}
 p, ol, ul {
 	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.2rem;
@@ -93,6 +101,7 @@ footer {
 }
 .navbar {
 	background: #111;
+	color: #fff;
 }
 .navbar#nav2 {
     margin-top: 20px;
@@ -104,7 +113,31 @@ footer {
 .navbar a {
 	text-decoration: none;
 }
-.navbar ul li.active a, .navbar ul li.current-menu-item a, .navbar ul li.current_page_item a, .navbar ul li.current_page_parent a {
+.navbar ul li.active a, .navbar ul li.current-menu-item a, .navbar ul li.current_page_item a, .navbar ul li.current_page_parent a, .navbar ul li .dropdown li.active a {
+	background: #868d92;
+}
+.navbar li .dropdown ul > li a {
+	background: #111;
+	color: #fff;	
+}
+.gumby-no-touch .navbar li .dropdown ul > li a:hover {
+	background: #868d92;
+	color: #fff;	
+}
+.navbar .menu {
+	float: left;
+}
+a.cart {
+	text-decoration: none;
+	display: block;
+	padding: 10px 5px;
+	font-size: 0.95rem;
+	text-align: center;
+	background: #111;
+	color: #fff;
+	border-radius: 0 0 10px 10px;
+}
+a.cart:hover {
 	background: #868d92;
 }
 .owl-carousel {
@@ -148,7 +181,7 @@ footer {
 	cursor: default;
 }
 .ic_caption h3 {
-	padding: 5px;
+	padding: 10px 5px 5px 5px;
 	margin: 0;
 	color: #fff;
 	line-height: 1;
@@ -165,6 +198,10 @@ footer {
 .alignleft {
 	float: left;
 	margin: 0 20px 0 0;
+}
+.alignright {
+	float: right !important;
+	margin: 0 0 0 20px;
 }
 .label label {
 	color: #111;
@@ -191,4 +228,122 @@ h1.entry-title {
 }
 #sidebar h2 {
 	font-size: 1.2rem;
+}
+.woocommerce ul.products li.product h3, .woocommerce-page ul.products li.product h3 {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0 0 0.2em 0;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+    color: #555;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+}
+.woocommerce ul.products li.product .price del, .woocommerce-page ul.products li.product .price del {
+    color: rgba(145, 145, 145, 0.5);
+    font-size: 0.9em;
+    margin: -2px 0 0;
+}
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    text-align: center;
+}
+.woocommerce-breadcrumb {
+	font-weight: 600;
+}
+.woocommerce span.onsale, .woocommerce-page span.onsale {
+    background: #111;
+    border-radius: 20px;
+    box-shadow: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    left: 6px;
+    line-height: 32px;
+    margin: 0;
+    min-height: 32px;
+    min-width: 42px;
+    padding: 4px;
+    position: absolute;
+    text-align: center;
+    text-shadow: none;
+    top: 6px;
+    border: 1px solid #fff;
+}
+.woocommerce #content input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce-page #content input.button.alt, .woocommerce-page #respond input#submit.alt, .woocommerce-page a.button.alt, .woocommerce-page button.button.alt, .woocommerce-page input.button.alt {
+    background: #111;
+    border-color: #76456c;
+    color: #fff;
+    text-shadow: none;
+}
+.woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover {
+    background: #868d92;
+    border-color: #76456c;
+    color: #fff;
+    text-shadow: none;
+}
+.woocommerce #content .quantity input.qty, .woocommerce .quantity input.qty, .woocommerce-page #content .quantity input.qty, .woocommerce-page .quantity input.qty {
+    -moz-appearance: textfield;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #c8bfc6 -moz-use-text-color #c8bfc6 #c8bfc6;
+    border-image: none;
+    border-radius: 2px 0 0 2px;
+    border-style: solid none solid solid;
+    border-width: 1px 0 1px 1px;
+    box-shadow: 0 0 2px 0 #f7f6f7 inset;
+    float: left;
+    font-weight: 700;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+}
+.woocommerce #content .quantity .minus, .woocommerce #content .quantity .plus, .woocommerce .quantity .minus, .woocommerce .quantity .plus, .woocommerce-page #content .quantity .minus, .woocommerce-page #content .quantity .plus, .woocommerce-page .quantity .minus, .woocommerce-page .quantity .plus {
+    background: -moz-linear-gradient(center top , #f7f6f7 0px, #e0dadf 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #c8bfc6;
+    border-radius: 2px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.075) inset, 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #5e5e5e;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 18px;
+    line-height: 13px;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    vertical-align: text-top;
+    width: 20px;
+}
+.product_meta .sku_wrapper, .product_meta .posted_in {
+	display: block;
+}
+table thead th, table tbody td, table tr td {
+    vertical-align: middle;
+}
+.woocommerce .cart-collaterals .cart_totals table th, .woocommerce-page .cart-collaterals .cart_totals table th {
+    padding: 6px;
+    width: 25%;
+}
+.woocommerce .cart-collaterals .cart_totals table td, .woocommerce .cart-collaterals .cart_totals table th, .woocommerce-page .cart-collaterals .cart_totals table td, .woocommerce-page .cart-collaterals .cart_totals table th {
+    padding: 6px;
+    vertical-align: middle;
+}
+table thead {
+    background-color: #111;
+    color: #fff;
+}
+.blog {
+	border-bottom: 1px solid #868d92;
 }

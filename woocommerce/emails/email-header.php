@@ -26,7 +26,7 @@ $wrapper = "
 	width:100%;
 	-webkit-text-size-adjust:none !important;
 	margin:0;
-	padding: 70px 0 70px 0;
+	padding: 20px 0 20px 0;
 ";
 $template_container = "
 	box-shadow:0 0 0 3px rgba(0,0,0,0.025) !important;

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 	
-		<div class="nine columns">
+		<div class="twelve columns">
 	
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
@@ -10,13 +10,6 @@
 		<?php endwhile; ?>
 		
 		<?php endif; ?>
-	
-	</div>
-
-	
-	<div class="three columns">
-	
-		<?php get_sidebar(); ?>	
 	
 	</div>
 
