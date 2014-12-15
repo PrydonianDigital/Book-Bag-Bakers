@@ -8,7 +8,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+<title><?php wp_title('•', true, 'right'); ?><?php bloginfo('name'); ?> • <?php bloginfo('description'); ?></title>
 <?php wp_head(); ?>
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
 </head>
@@ -16,16 +16,11 @@
 <body <?php body_class(); ?>>
 <div class="header" role="banner">
 	<div class="row">
-		<div class="two columns">
-			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /></a></h1>
-		</div>
-		<div class="ten columns subheading">
-			<h3><?php bloginfo('name'); ?></h3>
-			<h4><?php bloginfo('description'); ?></h4>
+		<div class="twelve columns">
+			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /> <?php bloginfo('name'); ?></a></h1>
 		</div>
 	</div>
 </div>
-<!--div class="secondary alert" id="cookie">This site uses cookies to improve user experience. <a href="#" id="cookieOK">Click here</a> to dismiss this warning.</div-->
 <div class="row">
 	<div class="twelve columns">
 		<div class="navbar" id="nav1" role="navigation">

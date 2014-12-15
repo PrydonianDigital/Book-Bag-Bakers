@@ -36,15 +36,26 @@ body {
 	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #111;
 	line-height: 1.2;
-	-webkit-font-smoothing: antialiased !important;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-h1, h2, h3, h4, h5, h6, strong, .navbar ul li > a {
+h1, h2, h3, h4, h5, h6, .navbar ul li > a {
 	font-family: "danielbold", "open sans", sans-serif;
 	font-weight: 600;
 }
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	color: #111;
+}
+a {
+	color: #666;
+	text-decoration: underline;
+}
+a:hover {
+	color: #333;
+	text-decoration: underline;
 }
 p, ol, ul {
 	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -56,6 +67,26 @@ p, ol, ul {
 .header h1 {
 	margin: 0;
 	padding: 0;
+	font-size: 2rem;
+	line-height: 120px;
+	text-align: center;
+	text-indent: -55px;
+}
+.header h1 img {
+	max-height: 100px;
+	width: auto;
+	float: left;
+}
+.header h1 a {
+	color: #111;
+	text-decoration: none;
+}
+footer {
+	font-size: 0.9rem;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	width: 100%;
+	overflow: hidden;
 }
 .subheading {
 	padding-top: 30px;
@@ -63,11 +94,73 @@ p, ol, ul {
 .navbar {
 	background: #111;
 }
+.navbar#nav2 {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
 .navbar ul {
 	line-height: 
 }
+.navbar a {
+	text-decoration: none;
+}
 .navbar ul li.active a, .navbar ul li.current-menu-item a, .navbar ul li.current_page_item a, .navbar ul li.current_page_parent a {
 	background: #868d92;
+}
+.owl-carousel {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1em;
+}
+.owl-theme .owl-controls {
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 0.5em;
+}
+.owl-theme .owl-controls .owl-buttons div {
+	display: none;
+}
+.owl-theme .owl-controls .owl-page span {
+	background: #111;
+}
+.owl-item img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	max-height: 395px;
+}
+.ic_container{
+	vertical-align: baseline;
+	margin: 10px;
+	position: relative;
+	opacity: 0;
+}
+.ic_caption {
+	position: absolute;	
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	left: 0;
+	right: 0;
+	bottom: 4px;
+	background: #111;
+	background: rgba(17,17,17,0.6);
+	width: 100%;
+	cursor: default;
+}
+.ic_caption h3 {
+	padding: 5px;
+	margin: 0;
+	color: #fff;
+	line-height: 1;
+	font-size: 1.5rem;
+}
+.ic_caption p {
+	padding: 0 5px 5px 5px;
+	margin: 0;
+	text-align: justify;
+	color: #fff;
+	line-height: 1.1;
+	font-size: 1rem;
 }
 .alignleft {
 	float: left;
