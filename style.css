@@ -33,7 +33,7 @@ License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 body {
 	font-size: 1.2rem;
 	font-weight: 300;
-	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Hevetica Neue", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #111;
 	line-height: 1.2;
 	-webkit-text-size-adjust: 100%;
@@ -66,7 +66,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 	text-decoration: underline;
 }
 p, ol, ul {
-	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Hevetica Neue", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.2rem;
 	line-height: 1.2;
 	font-weight: 300;
@@ -233,7 +233,11 @@ h1.entry-title {
     font-size: 0.9em;
     margin: 0;
     padding: 0 0 0.2em 0;
-	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Hevetica Neue", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price {
+    color: #555;
+    font-size: 1.25em;
 }
 .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
     color: #555;
@@ -250,8 +254,9 @@ h1.entry-title {
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
     text-align: center;
 }
-.woocommerce-breadcrumb {
+.woocommerce .woocommerce-breadcrumb, .woocommerce .woocommerce-breadcrumb a {
 	font-weight: 600;
+	color: #777;
 }
 .woocommerce span.onsale, .woocommerce-page span.onsale {
     background: #111;

@@ -20,7 +20,7 @@
 					$carousel->the_post();
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'carousel' ); $url = $thumb['0'];
 			?>
-			<div class="item"><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_carousel', true ); echo $text; ?>"><img class="lazyOwl" data-src="<?php echo $url; ?>" alt="<?php the_title(); ?>"></a>
+			<div class="item"><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_carousel', true ); echo $text; ?>"><img src="<?php echo $url; ?>" alt="<?php the_title(); ?>"></a>
 				<div class="ic_caption">
 					<h3><?php the_title(); ?></h3>
 					<?php the_excerpt(); ?>
