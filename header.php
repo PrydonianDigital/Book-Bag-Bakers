@@ -14,6 +14,21 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php
+require_once 'Mobile_Detect.php';
+$detect = new Mobile_Detect;	
+if( $detect->isMobile() && !$detect->isTablet() ){
+?>
+<div class="header" role="banner">
+	<div class="row">
+		<div class="twelve columns">
+			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /> <?php bloginfo('name'); ?></a></h1>
+		</div>
+	</div>
+</div>
+<?php
+} else {
+?>
 <div class="header" role="banner">
 	<div class="row">
 		<div class="two columns">
@@ -32,14 +47,37 @@
 		</div>
 	</div>
 </div>
+<?php } ?>
 <div class="row">
 	<div class="twelve columns">
-		<div class="navbar" id="nav1" role="navigation">
+		<div class="navbar" id="bbbnav" role="navigation">
 			<div class="row">
-				<a class="toggle" gumby-trigger="#nav1 ul.menu" href="#"><i class="icon-menu"></i></a>
+				<a class="toggle" gumby-trigger="#bbbnav ul.menu" href="#"><i class="icon-menu"></i></a>
+				<?php
+				if( $detect->isMobile() && !$detect->isTablet() ){
+				?>				
+				<?php wp_nav_menu( array( 'theme_location' => 'bbbmobilemenu', 'container' => false, 'walker' => new Walker_Page_Custom ) ); ?>
+				<?php
+				} else {
+				?>
 				<?php wp_nav_menu( array( 'theme_location' => 'bbbmenu', 'container' => false, 'walker' => new Walker_Page_Custom ) ); ?>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
 </div>
+<?php
+	if( $detect->isMobile() && !$detect->isTablet() ){
+?>
+<div class="row">
+	<div class="six columns">
+		<?php global $woocommerce; ?>
+		<a class="cart" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="View your shopping cart">
+			<i class="icon-basket"></i><br />
+			<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?><br />
+			<?php echo $woocommerce->cart->get_cart_total(); ?>
+		</a>
+	</div>
+</div>
+<?php } ?>
 <div class="row" role="main">

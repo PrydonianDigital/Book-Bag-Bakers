@@ -23,7 +23,13 @@
 			<div class="item"><a href="<?php global $post; $text = get_post_meta( $post->ID, '_cmb_carousel', true ); echo $text; ?>"><img src="<?php echo $url; ?>" alt="<?php the_title(); ?>"></a>
 				<div class="ic_caption">
 					<h3><?php the_title(); ?></h3>
+					<?php
+					require_once 'Mobile_Detect.php';
+					$detect = new Mobile_Detect;	
+					if( $detect->isMobile() && !$detect->isTablet() ){} else {
+					?>
 					<?php the_excerpt(); ?>
+					<?php } ?>
 				</div>			
 			</div>
 			<?php
