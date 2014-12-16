@@ -21,7 +21,11 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 	<h3><?php echo $heading; ?></h3>
 <?php endif; ?>
 
-
-<?php the_content(); ?>
-
-<?php $product->list_attributes(); ?>
+<div class="row">
+	<div class="six columns">
+		<?php the_content(); ?>
+	</div>
+	<div class="six columns">
+		<?php $product->list_attributes(); ?>
+	</div>
+</div>

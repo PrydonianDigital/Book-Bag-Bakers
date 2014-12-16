@@ -9,7 +9,7 @@
 	<div <?php post_class('row'); ?>>
 		
 		<div class="twelve columns">
-			
+			<?php the_post_thumbnail('carousel'); ?>
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 			<h5><span datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished" class="updated dtstart"><?php the_time( 'D, jS M, Y' ); ?> / by <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span></h5>
 			
@@ -19,13 +19,7 @@
 	
 	<div class="row">
 		
-		<div class="three columns">
-			
-			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
-			
-		</div>
-		
-		<div class="nine columns">
+		<div class="twelve columns">
 			
 			<?php the_content(); ?>
 			
