@@ -41,9 +41,12 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-h1, h2, h3, h4, h5, h6, .navbar ul li > a {
-	font-family: "danielbold", "open sans", sans-serif;
+h1, h2, h3, h4, h5, h6, .tabs li {
+	font-family: "Bitter", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 600;
+}
+.navbar ul li > a {
+	font-family: "danielbold", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
@@ -73,6 +76,7 @@ p, ol, ul {
 	margin-bottom: 16px;
 }
 .header h1 {
+	font-family: "danielbold", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	font-size: 2rem;
@@ -233,7 +237,7 @@ h1.entry-title {
     font-size: 0.9em;
     margin: 0;
     padding: 0 0 0.2em 0;
-	font-family: "Hevetica Neue", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Bitter", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price {
     color: #555;
