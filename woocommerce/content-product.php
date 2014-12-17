@@ -26,15 +26,15 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
 ?>
-<li <?php post_class( $classes ); ?>>
+<li <?php post_class( $classes ); ?> itemscope itemtype="http://schema.org/Product">
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
-	<a href="<?php the_permalink(); ?>">
+	<a href="<?php the_permalink(); ?>" >
 
 		<?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
 
-		<h3><?php the_title(); ?></h3>
+		<h3 itemprop="name" class="entry-title"><?php the_title(); ?></h3>
 
 		<?php do_action( 'woocommerce_after_shop_loop_item_title' ); ?>
 
