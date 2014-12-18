@@ -46,7 +46,8 @@ h1, h2, h3, h4, h5, h6, .tabs li {
 	font-weight: 600;
 }
 .navbar ul li > a {
-	font-family: "danielbold", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "danielregular", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.3rem;
 }
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
@@ -68,9 +69,16 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 	color: #333;
 	text-decoration: underline;
 }
+h2.tagline {
+	line-height: 1;
+	font-family: "danielregular", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
 p, ol, ul {
 	font-family: "Hevetica Neue", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	line-height: 1.2;
 	font-weight: 300;
 	margin-bottom: 16px;
@@ -79,8 +87,8 @@ p, ol, ul {
 	font-family: "danielbold", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
-	font-size: 2rem;
-	line-height: 120px;
+	font-size: 2.5rem;
+	line-height: 150px;
 	text-align: center;
 	text-indent: -55px;
 }
@@ -145,8 +153,7 @@ a.cart:hover {
 	background: #868d92;
 }
 .owl-carousel {
-	border-bottom: 1px solid #ccc;
-	margin-bottom: 1em;
+	margin-bottom: 0;
 }
 .owl-theme .owl-controls {
 	overflow: hidden;
@@ -335,6 +342,10 @@ span.price, .woocommerce div.product p.price, .woocommerce #content div.product 
     vertical-align: text-top;
     width: 20px;
 }
+.woocommerce ul.products li.product a img, .woocommerce-page ul.products li.product a img, .attachment-shop_single {
+	outline: 2px solid white;
+	outline-offset: -6px;
+}
 .product_meta .sku_wrapper, .product_meta .posted_in {
 	display: block;
 }
@@ -348,6 +359,9 @@ table thead th, table tbody td, table tr td {
 .woocommerce .cart-collaterals .cart_totals table td, .woocommerce .cart-collaterals .cart_totals table th, .woocommerce-page .cart-collaterals .cart_totals table td, .woocommerce-page .cart-collaterals .cart_totals table th {
     padding: 6px;
     vertical-align: middle;
+}
+.woocommerce #reviews #comments ol.commentlist li .meta {
+	color: #666;
 }
 table thead {
     background-color: #111;

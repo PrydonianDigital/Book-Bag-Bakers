@@ -57,16 +57,47 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	</div><!-- .summary -->
 
-	<?php
-		/**
-		 * woocommerce_after_single_product_summary hook
-		 *
-		 * @hooked woocommerce_output_product_data_tabs - 10
-		 * @hooked woocommerce_upsell_display - 15
-		 * @hooked woocommerce_output_related_products - 20
-		 */
-		do_action( 'woocommerce_after_single_product_summary' );
-	?>
+<div class="row">
+	<div class="twelve columns">
+<?php
+/**
+ * Additional Information tab
+ * 
+ * @author        WooThemes
+ * @package       WooCommerce/Templates
+ * @version       2.0.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	// Exit if accessed directly
+	exit;
+}
+
+global $product;
+
+$heading = apply_filters( 'woocommerce_product_additional_information_heading', __( 'Additional Information', 'woocommerce' ) );
+?>
+
+<?php if ( $heading ): ?>
+	<h3><?php echo $heading; ?></h3>
+<?php endif; ?>
+
+<div class="row">
+	<div class="six columns">
+		<?php the_content(); ?>
+	</div>
+	<div class="six columns">
+		<?php $product->list_attributes(); ?>
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+		<?php comments_template(); ?>
+	</div>
+</div>	
+	</div>
+</div>
 
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 

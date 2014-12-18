@@ -31,10 +31,10 @@ if( $detect->isMobile() && !$detect->isTablet() ){
 ?>
 <div class="header" role="banner">
 	<div class="row">
-		<div class="two columns">
+		<div class="three columns">
 			<a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /></a>
 		</div>
-		<div class="eight columns">
+		<div class="seven columns">
 			<h1><a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo('name'); ?></a></h1>
 		</div>
 		<div class="two columns">

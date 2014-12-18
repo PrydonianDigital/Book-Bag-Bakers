@@ -2,7 +2,7 @@
 
 	
 	<div class="twelve columns">
-
+		<h2 class="tagline"><?php bloginfo('description'); ?></h2>
 		<div id="ch-carousel" class="owl-carousel">
 			<?php
 			// WP_Query arguments
@@ -42,14 +42,6 @@
 			wp_reset_postdata();	
 			?>
 		</div>
-
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-	<?php the_content(); ?>	
-	
-	<?php endwhile; ?>
-	
-	<?php endif; ?>
 	
 	</div>
 
