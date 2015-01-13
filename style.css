@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, .tabs li {
 	font-weight: 600;
 }
 .navbar ul li > a {
-	font-family: "danielregular", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "danielbold", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.3rem;
 }
 h1, h2, h3, h4, h5, h6 {

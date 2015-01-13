@@ -51,7 +51,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-
+	<?php wp_stripe_form(); ?>
 </form>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
