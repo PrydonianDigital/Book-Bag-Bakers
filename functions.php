@@ -55,8 +55,10 @@ function bbb_scripts() {
 	wp_register_script( 'owl', get_template_directory_uri() . '/owl-carousel/owl.carousel.min.js', false, '1.4.1', true );
 	wp_register_script( 'capslide', get_template_directory_uri() . '/js/capSlide.js', false, '1.4.1', true );
 	wp_register_script( 'cookie', get_template_directory_uri() . '/js/libs/cookie.js', false, '1.4.1', true );
+	wp_register_script( 'j-ui', get_template_directory_uri() . '/js/jquery-ui.min.js', false, '1.11.2', true );
 	wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.6', true );	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'j-ui' );
 	wp_enqueue_script( 'gumby' );
 	wp_enqueue_script( 'gumbyfixed' );
 	wp_enqueue_script( 'gumbyskip' );
@@ -84,8 +86,14 @@ function bbb_styles() {
 	wp_register_style( 'normalise', get_template_directory_uri() . '/css/normalize.css', false, '3.0.1' );
 	wp_register_style( 'owl', get_template_directory_uri() . '/owl-carousel/owl.carousel.css', false, '3.0.1' );
 	wp_register_style( 'theme', get_template_directory_uri() . '/owl-carousel/owl.theme.css', false, '3.0.1' );
+	wp_register_style( 'j-uicss', get_template_directory_uri() . '/css/jquery-ui.min.css', false, '1.11.2' );
+	wp_register_style( 'j-uistructure', get_template_directory_uri() . '/css/jquery-ui.structure.min.css', false, '1.11.2' );
+	wp_register_style( 'blacktie', get_template_directory_uri() . '/css/jquery-ui.theme.min.css', false, '1.11.2' );
 	wp_enqueue_style( 'normalise' );
 	wp_enqueue_style( 'owl' );
+	wp_enqueue_style( 'j-uicss' );
+	wp_enqueue_style( 'j-uistructure' );
+	wp_enqueue_style( 'blacktie' );
 	wp_enqueue_style( 'theme' );
 	wp_enqueue_style( 'open' );
 	wp_enqueue_style( 'bitter' );
@@ -252,4 +260,18 @@ add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 function woo_remove_product_tabs( $tabs ) {
     unset( $tabs['description'] );
     return $tabs;
+}
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+function custom_override_checkout_fields( $fields ) {
+     $fields['order']['order_comments']['placeholder'] = 'Notes about your order.';
+     $fields['shipping']['shipping_address_1']['placeholder'] = 'Address';
+     $fields['shipping']['shipping_address_2']['placeholder'] = 'Address';
+     $fields['billing']['billing_address_1']['placeholder'] = 'Address';
+     $fields['billing']['billing_address_2']['placeholder'] = 'Address';
+     $fields['shipping']['shipping_state']['placeholder'] = 'County';
+     $fields['shipping']['shipping_postcode']['placeholder'] = 'Postcode';
+     $fields['billing']['billing_state']['placeholder'] = 'County';
+     $fields['billing']['billing_postcode']['placeholder'] = 'Postcode';
+     return $fields;
 }
