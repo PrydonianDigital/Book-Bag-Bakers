@@ -29,6 +29,25 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
 			<input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
 		</h3>
+		
+		<p style="clear: both;">
+		<?php
+			$args = array (
+				'page_id' => '240',
+			);
+			$delivery = new WP_Query( $args );
+			if ( $delivery->have_posts() ) {
+				while ( $delivery->have_posts() ) {
+					$delivery->the_post();
+					the_content();
+				}
+			} else {
+				// no posts found
+			}
+			// Restore original Post Data
+			wp_reset_postdata();	
+		?>
+		</p>		
 
 		<div class="shipping_address">
 

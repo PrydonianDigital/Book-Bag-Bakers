@@ -19,10 +19,21 @@ require_once 'Mobile_Detect.php';
 $detect = new Mobile_Detect;	
 if( $detect->isMobile() && !$detect->isTablet() ){
 ?>
-<div class="header" role="banner">
+<div class="mobileheader" role="banner">
 	<div class="row">
+		<ul class="two_up tiles">
+			<li><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /></a></li>
+			<li>
+		<?php global $woocommerce; ?>
+		<a class="cart" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="View your shopping cart">
+			<i class="icon-basket"></i><br />
+			<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?><br />
+			<?php echo $woocommerce->cart->get_cart_total(); ?>
+		</a>			
+			</li>
+		</ul>
 		<div class="twelve columns">
-			<h1><a href="<?php bloginfo( 'url' ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/header/logo.png" title="<?php bloginfo('name'); ?>" alt="<?php bloginfo('name'); ?>" gumby-retina /> <?php bloginfo('name'); ?></a></h1>
+			<h1><a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo('name'); ?></a></h1>
 		</div>
 	</div>
 </div>
@@ -46,6 +57,11 @@ if( $detect->isMobile() && !$detect->isTablet() ){
 			</a>
 		</div>
 	</div>
+	<div class="row">
+		<div class="twelve columns">
+			<h2 class="tagline"><?php bloginfo('description'); ?></h2>
+		</div>
+	</div>
 </div>
 <?php } ?>
 <div class="row">
@@ -66,18 +82,5 @@ if( $detect->isMobile() && !$detect->isTablet() ){
 		</div>
 	</div>
 </div>
-<?php
-	if( $detect->isMobile() && !$detect->isTablet() ){
-?>
-<div class="row">
-	<div class="six columns">
-		<?php global $woocommerce; ?>
-		<a class="cart" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="View your shopping cart">
-			<i class="icon-basket"></i><br />
-			<?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?><br />
-			<?php echo $woocommerce->cart->get_cart_total(); ?>
-		</a>
-	</div>
-</div>
-<?php } ?>
+
 <div class="row" role="main">

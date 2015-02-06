@@ -16,17 +16,17 @@ function conway_hall_init()  {
 	add_image_size( 'article', 350, 197, false );
 	add_image_size( 'speaker', 290, 290, true );
 	$defaults = array(
-		'default-image'          => get_template_directory_uri() . '/img/header/header.png',
-		'random-default'         => true,
-		'width'                  => 1920,
-		'height'                 => 200,
-		'flex-height'            => false,
-		'flex-width'             => false,
-		'default-text-color'     => '',
-		'header-text'            => false,
-		'uploads'                => true,
-		'wp-head-callback'       => '',
-		'admin-head-callback'    => '',
+		'default-image'		  => get_template_directory_uri() . '/img/header/header.png',
+		'random-default'		 => true,
+		'width'				  => 1920,
+		'height'				 => 200,
+		'flex-height'			=> false,
+		'flex-width'			 => false,
+		'default-text-color'	 => '',
+		'header-text'			=> false,
+		'uploads'				=> true,
+		'wp-head-callback'	   => '',
+		'admin-head-callback'	=> '',
 		'admin-preview-callback' => '',
 	);
 	add_theme_support( 'custom-header', $defaults );
@@ -114,38 +114,38 @@ add_action( 'init', 'bbb_menu' );
 // Register Carousel Post Type
 function carousel() {
 	$labels = array(
-		'name'                => _x( 'Carousels', 'Post Type General Name', 'bbb' ),
-		'singular_name'       => _x( 'Carousel', 'Post Type Singular Name', 'bbb' ),
-		'menu_name'           => __( 'Carousels', 'bbb' ),
+		'name'				=> _x( 'Carousels', 'Post Type General Name', 'bbb' ),
+		'singular_name'	   => _x( 'Carousel', 'Post Type Singular Name', 'bbb' ),
+		'menu_name'		   => __( 'Carousels', 'bbb' ),
 		'parent_item_colon'   => __( 'Parent Carousel:', 'bbb' ),
-		'all_items'           => __( 'All Carousels', 'bbb' ),
-		'view_item'           => __( 'View Carousel', 'bbb' ),
-		'add_new_item'        => __( 'Add New Carousel', 'bbb' ),
-		'add_new'             => __( 'Add New', 'bbb' ),
-		'edit_item'           => __( 'Edit Carousel', 'bbb' ),
-		'update_item'         => __( 'Update Carousel', 'bbb' ),
-		'search_items'        => __( 'Search Carousels', 'bbb' ),
-		'not_found'           => __( 'Not found', 'bbb' ),
+		'all_items'		   => __( 'All Carousels', 'bbb' ),
+		'view_item'		   => __( 'View Carousel', 'bbb' ),
+		'add_new_item'		=> __( 'Add New Carousel', 'bbb' ),
+		'add_new'			 => __( 'Add New', 'bbb' ),
+		'edit_item'		   => __( 'Edit Carousel', 'bbb' ),
+		'update_item'		 => __( 'Update Carousel', 'bbb' ),
+		'search_items'		=> __( 'Search Carousels', 'bbb' ),
+		'not_found'		   => __( 'Not found', 'bbb' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'bbb' ),
 	);
 	$args = array(
-		'label'               => __( 'carousel', 'bbb' ),
-		'description'         => __( 'Homepage Carousel', 'bbb' ),
-		'labels'              => $labels,
-		'supports'            => array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
-		'taxonomies'          => array( 'category', 'post_tag' ),
-		'hierarchical'        => false,
-		'public'              => true,
-		'show_ui'             => true,
-		'show_in_menu'        => true,
+		'label'			   => __( 'carousel', 'bbb' ),
+		'description'		 => __( 'Homepage Carousel', 'bbb' ),
+		'labels'			  => $labels,
+		'supports'			=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
+		'taxonomies'		  => array( 'category', 'post_tag' ),
+		'hierarchical'		=> false,
+		'public'			  => true,
+		'show_ui'			 => true,
+		'show_in_menu'		=> true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'can_export'          => true,
-		'has_archive'         => false,
+		'menu_position'	   => 5,
+		'can_export'		  => true,
+		'has_archive'		 => false,
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'page',
+		'capability_type'	 => 'page',
 	);
 	register_post_type( 'carousel', $args );
 }
@@ -195,11 +195,11 @@ function my_theme_wrapper_end() {
 }
 
 function add_active_class_to_nav_menu($classes) {
-    if (in_array('current-menu-item', $classes, true) || in_array('current_page_item', $classes, true)) {
-        $classes = array_diff($classes, array('current-menu-item', 'current_page_item', 'active'));
-        $classes[] = 'active';
-    }
-    return $classes;
+	if (in_array('current-menu-item', $classes, true) || in_array('current_page_item', $classes, true)) {
+		$classes = array_diff($classes, array('current-menu-item', 'current_page_item', 'active'));
+		$classes[] = 'active';
+	}
+	return $classes;
 }
 add_filter('nav_menu_css_class', 'add_active_class_to_nav_menu');
 
@@ -242,7 +242,7 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_r
 add_filter( 'woocommerce_product_tabs' , 'woocommerce_related_products_tab' );
 function woocommerce_related_products_tab( $tabs ) {
 	$tabs['related_products'] = array(
-		'title'    => 'Related Products',
+		'title'	=> 'Related Products',
 		'priority' => 25,
 		'callback' => 'woocommerce_product_related_products_tab'
 	);
@@ -258,20 +258,191 @@ do_action('growdev_after_single_product_summary');
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 function woo_remove_product_tabs( $tabs ) {
-    unset( $tabs['description'] );
-    return $tabs;
+	unset( $tabs['description'] );
+	return $tabs;
 }
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
 function custom_override_checkout_fields( $fields ) {
-     $fields['order']['order_comments']['placeholder'] = 'Notes about your order.';
-     $fields['shipping']['shipping_address_1']['placeholder'] = 'Address';
-     $fields['shipping']['shipping_address_2']['placeholder'] = 'Address';
-     $fields['billing']['billing_address_1']['placeholder'] = 'Address';
-     $fields['billing']['billing_address_2']['placeholder'] = 'Address';
-     $fields['shipping']['shipping_state']['placeholder'] = 'County';
-     $fields['shipping']['shipping_postcode']['placeholder'] = 'Postcode';
-     $fields['billing']['billing_state']['placeholder'] = 'County';
-     $fields['billing']['billing_postcode']['placeholder'] = 'Postcode';
-     return $fields;
+	$fields['order']['order_comments']['placeholder'] = 'Notes about your order.';
+	 $fields['shipping']['shipping_address_1']['placeholder'] = 'Address';
+	 $fields['shipping']['shipping_address_2']['placeholder'] = 'Address';
+	 $fields['billing']['billing_address_1']['placeholder'] = 'Address';
+	 $fields['billing']['billing_address_2']['placeholder'] = 'Address';
+	 $fields['shipping']['shipping_state']['placeholder'] = 'County';
+	 $fields['shipping']['shipping_postcode']['placeholder'] = 'Postcode';
+	 $fields['billing']['billing_state']['placeholder'] = 'County';
+	 $fields['billing']['billing_postcode']['placeholder'] = 'Postcode';
+	 return $fields;
 }
+
+remove_action( 'woocommerce_order_details_after_order_table', 'woocommerce_order_again_button' );
+
+add_filter('woocommerce_bookings_booking_cost_text', 'bbb_change_booking_cost');
+function wooninja_change_book_now() {
+	return 'Order total';
+}
+
+function my_text_strings( $translated_text, $text, $domain ) {
+	switch ( $translated_text ) {
+		case 'Persons' :
+			$translated_text = __( 'Number of items', 'woocommerce-bookings' );
+		break;
+		case 'Booking cost' :
+			$translated_text = __( 'Total item cost', 'woocommerce-bookings' );
+		break;
+		case 'Booking Date' :
+			$translated_text = __( 'Delivery / Collection Date', 'woocommerce-bookings' );
+		break;
+		case 'Ship to a different address?' :
+			$translated_text = __( 'Is the delivery address different to the billing address?', 'woocommerce-bookings' );
+		break;
+		case 'Proceed to Checkout' :
+			$translated_text = __( 'Checkout', 'woocommerce-bookings' );
+		break;
+		case 'My Subscriptions' :
+			$translated_text = __( 'My Bread Club', 'woocommerce-bookings' );
+		break;
+		case 'You have no active subscriptions. Find your first subscription in the ' :
+			$translated_text = __( 'You have no active Bread Club orders. Find your first Bread Club subscription in the ', 'woocommerce-bookings' );
+		break;
+	}
+	return $translated_text;
+}
+add_filter( 'gettext', 'my_text_strings', 20, 3 );
+
+add_filter( 'woocommerce_get_price_html', 'wpa83367_price_html', 100, 2 );
+
+
+function wpa83367_price_html( $price,$product ){
+   // return $product->price;
+    if ( $product->price > 0 ) {
+      if ( $product->price && isset( $product->regular_price ) ) {
+        $from = $product->regular_price;
+        $to = $product->price;
+        return ( ( is_numeric( $to ) ) ? woocommerce_price( $to ) : $to );
+      } else {
+        $to = $product->price;
+        return ( ( is_numeric( $to ) ) ? woocommerce_price( $to ) : $to );
+      }
+   } else {
+     return 'Free';
+   }
+}
+
+function wcsdp_get_available_payment_gateways( $available_gateways ) {
+	global $wp;
+
+	if ( class_exists( 'WC_Subscriptions_Cart' ) ) {
+		if ( WC_Subscriptions_Cart::cart_contains_subscription() || WC_Subscriptions_Cart::cart_contains_subscription_renewal() || ( is_checkout_pay_page() && WC_Subscriptions_Order::order_contains_subscription( $wp->query_vars['order-pay'] ) ) ) {
+			if ( isset( $available_gateways['cod'] ) ) {
+				unset( $available_gateways['cod'] );
+			}
+			if ( isset( $available_gateways['bacs'] ) ) {
+				unset( $available_gateways['bacs'] );
+			}
+		}
+	}
+	return $available_gateways;
+}
+add_filter( 'woocommerce_available_payment_gateways', 'wcsdp_get_available_payment_gateways', 11 );
+
+
+add_action( 'dashboard_glance_items', 'my_add_cpt_to_dashboard' );
+
+function my_add_cpt_to_dashboard() {
+	$showTaxonomies = 1;
+	if ($showTaxonomies) {
+		$taxonomies = get_taxonomies( array( '_builtin' => false ), 'objects' );
+		foreach ( $taxonomies as $taxonomy ) {
+			$num_terms	= wp_count_terms( $taxonomy->name );
+			$num = number_format_i18n( $num_terms );
+			$text = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, $num_terms );
+			$associated_post_type = $taxonomy->object_type;
+			if ( current_user_can( 'manage_categories' ) ) {
+				$output = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $num . ' ' . $text .'</a>';
+			}
+			echo '<li class="taxonomy-count">' . $output . ' </li>';
+		}
+	}
+	// Custom post types counts
+	$post_types = get_post_types( array( '_builtin' => false ), 'objects' );
+	foreach ( $post_types as $post_type ) {
+		if($post_type->show_in_menu==false) {
+			continue;
+		}
+		$num_posts = wp_count_posts( $post_type->name );
+		$num = number_format_i18n( $num_posts->publish );
+		$text = _n( $post_type->labels->singular_name, $post_type->labels->name, $num_posts->publish );
+		if ( current_user_can( 'edit_posts' ) ) {
+			$output = '<a href="edit.php?post_type=' . $post_type->name . '">' . $num . ' ' . $text . '</a>';
+		}
+		echo '<li class="page-count ' . $post_type->name . '-count">' . $output . '</td>';
+	}
+}
+
+
+function add_menu_icons_styles(){
+ 
+	echo '<style>
+	#adminmenu #menu-posts-carousel div.wp-menu-image:before, #dashboard_right_now .carousel-count a:before {
+		content: "\f233";
+	}
+	#adminmenu #menu-posts-people div.wp-menu-image:before, #dashboard_right_now .people-count a:before {
+		content: "\f307";
+	}
+	#adminmenu #menu-posts-jobs div.wp-menu-image:before, #dashboard_right_now .jobs-count a:before {
+		content: "\f484";
+	}
+	#dashboard_right_now .tribe_events-count a:before {
+		content: "\f145";
+	}
+	#dashboard_right_now .feedback-count a:before {
+		content: "\f175";
+	}
+	#dashboard_right_now .taxonomy-count a:before {
+		content: "\f325";
+	}
+	#adminmenu #menu-posts-pdf div.wp-menu-image:before, #dashboard_right_now .pdf-count a:before {
+		content: "\f497";
+	}
+	#adminmenu #menu-posts-product div.wp-menu-image:before, #dashboard_right_now .product-count a:before {
+		content: "\f174";
+	}
+	#adminmenu #menu-posts-memorial_lecture div.wp-menu-image:before, #dashboard_right_now .memorial_lecture-count a:before {
+		content: "\f473";
+	}
+	#adminmenu #menu-posts-amazon_product div.wp-menu-image:before, #dashboard_right_now .amazon_product-count a:before {
+		content: "\f174";
+	}
+	#adminmenu .menu-icon-speaker div.wp-menu-image:before {
+		content: "\f488";
+	}
+	#adminmenu .menu-icon-issue div.wp-menu-image:before {
+		content: "\f331";
+	}
+	#adminmenu .menu-icon-contacts div.wp-menu-image:before {
+		content: "\f336";
+	}
+	#adminmenu .menu-icon-ethicalrecord div.wp-menu-image:before {
+		content: "\f464";
+	}
+	#dashboard_right_now .speaker-count a:before {
+	    content: "\f488";
+	}
+	#dashboard_right_now .issue-count a:before {
+	    content: "\f331";
+	}
+	#dashboard_right_now .taxonomy-count a:before {
+	    content: "\f325";
+	}
+	#dashboard_right_now .feedback-count a:before {
+	    content: "\f466";
+	}
+	#dashboard_right_now .ethicalrecord-count a:before {
+	    content: "\f464";
+	}
+	</style>';
+
+}
+add_action( 'admin_head', 'add_menu_icons_styles' );

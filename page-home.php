@@ -2,7 +2,7 @@
 
 	
 	<div class="twelve columns">
-		<h2 class="tagline"><?php bloginfo('description'); ?></h2>
+		
 		<div id="ch-carousel" class="owl-carousel">
 			<?php
 			// WP_Query arguments

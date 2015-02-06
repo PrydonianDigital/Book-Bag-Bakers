@@ -73,8 +73,9 @@ h2.tagline {
 	line-height: 1;
 	font-family: "danielregular", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-align: center;
-	font-size: 2rem;
-	margin-bottom: 20px;
+	font-size: 1.3rem;
+	margin-bottom: 10px;
+	padding: 0.2rem 0;
 }
 p, ol, ul {
 	font-family: "Hevetica Neue", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -92,14 +93,27 @@ p, ol, ul {
 	text-align: center;
 	text-indent: -55px;
 }
+.mobileheader h1 {
+	font-family: "danielbold", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 1.5rem;
+	line-height: 2;
+	text-align: center;
+	text-indent: -55px;
+}
 .header h1 img {
 	max-height: 100px;
 	width: auto;
 	float: left;
 }
-.header h1 a {
+.header h1 a, .mobileheader h1 a {
 	color: #111;
 	text-decoration: none;
+}
+.mobileheader h1 a {
+	display: block;
+	text-align: center;
 }
 footer {
 	font-size: 0.9rem;
@@ -138,6 +152,11 @@ footer {
 }
 .navbar .menu {
 	float: left;
+}
+.images ul {
+	list-style: disc;
+	margin: 5px 0 5px 20px;
+	padding: 0 0 0 20px;
 }
 a.cart {
 	text-decoration: none;
@@ -192,7 +211,7 @@ a.cart:hover {
 	cursor: default;
 }
 .ic_caption h3 {
-	padding: 10px 5px 5px 5px;
+	padding: 10px 5px;
 	margin: 0;
 	color: #fff;
 	line-height: 1;
@@ -203,7 +222,7 @@ a.cart:hover {
 	margin: 0;
 	text-align: justify;
 	color: #fff;
-	line-height: 1.1;
+	line-height: 1;
 	font-size: 1rem;
 }
 .alignleft {
@@ -213,6 +232,12 @@ a.cart:hover {
 .alignright {
 	float: right !important;
 	margin: 0 0 0 20px;
+}
+.aligncenter {
+	margin: 0 auto;
+	padding: 0 5px;
+	display: inline-block;
+	text-align: center;
 }
 .label label {
 	color: #111;
@@ -294,6 +319,11 @@ span.price, .woocommerce div.product p.price, .woocommerce #content div.product 
     color: #fff;
     text-shadow: none;
 }
+.woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover {
+	background: #ccc;
+	color: #ddd;
+    border-color: #eee;
+}
 .woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover {
     background: #868d92;
     border-color: #76456c;
@@ -367,9 +397,137 @@ table thead {
     background-color: #111;
     color: #fff;
 }
-.blog {
+.blogPost {
 	border-bottom: 1px solid #868d92;
 }
+.field .input.textarea {
+    height: 250px;
+}
+mark {
+    background: #111;
+    color: #fff;
+	padding: 0 5px;
+	font-weight: 600;
+	border-radius: 5px;
+}
+p.stock {
+	font-weight: 600;
+}
+#wc-bookings-booking-form .label, .wc-bookings-booking-form fieldset legend small {
+	color: #111;
+	padding: 5px;
+	font-size: 1rem;
+}
+.picker {
+}
+.picker:after {
+	content: "";
+}
+.wc-bookings-date-picker .ui-datepicker .ui-datepicker-title {
+    font-weight: 400;
+    line-height: 1em;
+    padding: 0.5em 0;
+}
+.wc-bookings-date-picker .ui-datepicker-header, .wc-bookings-date-picker .ui-datepicker .ui-datepicker-prev, .wc-bookings-date-picker .ui-datepicker .ui-datepicker-next {
+	background: #111;
+}
+.wc-bookings-date-picker .ui-datepicker td.bookable a, .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-current-day a {
+	background: #111;
+}
+.wc-bookings-date-picker .ui-datepicker td.fully_booked span {
+	background: #454545 !important;
+	color: #000 !important;
+}
+form fieldset {
+    padding: 0.5em 1.5em;
+}
+.wc-bookings-booking-cost < .booking-error {
+	background: #b95858;
+}
+.term-description p {
+	font-weight: 700;
+}
+.woocommerce .woocommerce-info:before, .woocommerce-page .woocommerce-info:before, .woocommerce .woocommerce-error:before, .woocommerce-page .woocommerce-error:before, .woocommerce .woocommerce-message:before, .woocommerce-page .woocommerce-message:before {
+    background-color: transparent;
+    content: "";
+    font-family: Times,Georgia,serif;
+    font-style: italic;
+}
+.woocommerce .woocommerce-message:before, .woocommerce .woocommerce-error:before, .woocommerce .woocommerce-info:before, .woocommerce-page .woocommerce-message:before, .woocommerce-page .woocommerce-error:before, .woocommerce-page .woocommerce-info:before {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: none;
+    color: #fff;
+    content: "";
+    display: block;
+    font-family: sans-serif;
+    font-size: 1em;
+    height: 1.5em;
+    left: 1em;
+    line-height: 1.5;
+    padding-top: 1em;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    top: 0;
+    width: 1.5em;
+}
+.woocommerce .woocommerce-info {
+	border-color: #111;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	padding-left: 1em !important;
+	text-align: center;
+	color: #111;
+}
+.woocommerce .woocommerce-error {
+	border-color: #b81c23;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	padding-left: 1em !important;
+	text-align: center;
+	color: #b81c23;
+	font-weight: 700;
+}
+.woocommerce .woocommerce-message {
+	border-color: #8fae1b;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	padding-left: 1em !important;
+	color: #111;
+	font-weight: 700;
+}
+.woocommerce .woocommerce-info a {
+	font-weight: 700;
+	color: #111;
+}
+.woocommerce .woocommerce-error a {
+	font-weight: 700;
+	color: #b81c23;
+}
+.woocommerce .woocommerce-message a {
+	display: inline-block;
+	margin-left: 20px;
+}
+ 
 
 @media only screen and (min-width : 320px) and (max-width : 568px) {
 	.header h1 {

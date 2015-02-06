@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		}
 	?></th>
 	<td>
+		<?php if ( is_user_logged_in() ) { ?>
 		<?php if ( ! empty( $available_methods ) ) : ?>
 
 			<?php if ( 1 === count( $available_methods ) ) :
@@ -69,13 +70,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<?php if ( is_cart() ) : ?>
 
 				<?php echo apply_filters( 'woocommerce_cart_no_shipping_available_html',
-					'<div class="woocommerce-info"><p>' . __( 'There doesn&lsquo;t seem to be any available delivery/collection methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p></div>'
+					'<div class="woocommerce-info"><p>' . __( 'There doesn&lsquo;t seem to be any available delivery / collection methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p></div>'
 				); ?>
 
 			<?php else : ?>
 
 				<?php echo apply_filters( 'woocommerce_no_shipping_available_html',
-					'<p>' . __( 'There doesn&lsquo;t seem to be any available delivery/collection methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p>'
+					'<p>' . __( 'There doesn&lsquo;t seem to be any available delivery / collection methods. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p>'
 				); ?>
 
 			<?php endif; ?>
@@ -93,5 +94,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				echo '<p class="woocommerce-shipping-contents"><small>' . __( 'Shipping', 'woocommerce' ) . ': ' . implode( ', ', $product_names ) . '</small></p>';
 			?>
 		<?php endif; ?>
+		<?php } else { ?>
+	    <p>You need to log in to see delivery options. Check the <a href="http://prydonian.digital/bookbagbakers/shop/delivery-area/">Delivery area</a> for more details.</p>
+		<?php } ?>
 	</td>
 </tr>

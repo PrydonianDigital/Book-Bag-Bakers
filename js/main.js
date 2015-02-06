@@ -3,7 +3,19 @@ Gumby.init();
 var $j = jQuery.noConflict();
 
 $j(function() {
+	
+	$j('.contact-form div').addClass('field');
+	
+	$j('.contact-form input').addClass('input');
 
+	$j('.contact-form textarea').addClass('input textarea');
+	
+	$j('.checkout p').addClass('field');
+	
+	$j('.checkout input').addClass('input');
+
+	$j('.checkout textarea').addClass('input textarea');
+	
 	// homepage carousel
 	$j("#ch-carousel").owlCarousel({
 		items: 1,

@@ -1,11 +1,10 @@
 <?php get_header(); ?>
 
-<div class="row">
 
 	<div class="twelve columns" role="main">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	<div <?php post_class('blog'); ?>>
+	<div <?php post_class('blogPost'); ?>>
 		<div class="row" itemscope itemtype="http://schema.org/BlogPosting">
 			
 			<div class="twelve columns">
@@ -21,7 +20,7 @@
 			
 			<div class="three columns">
 				
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article'); ?></a>
 				
 			</div>
 			
@@ -40,6 +39,5 @@
 
 	</div>
 
-</div>
 
 <?php get_footer(); ?>

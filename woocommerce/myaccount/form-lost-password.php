@@ -43,6 +43,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="clear"></div>
 
     <p class="form-row"><input type="submit" class="button" name="wc_reset_password" value="<?php echo 'lost_password' == $args['form'] ? __( 'Reset Password', 'woocommerce' ) : __( 'Save', 'woocommerce' ); ?>" /></p>
+    <p class="form-row">
+	    <button type="button" class="button" onclick="window.location.href='../'">Log In</button>
+    </p>
 	<?php wp_nonce_field( $args['form'] ); ?>
 
 </form>

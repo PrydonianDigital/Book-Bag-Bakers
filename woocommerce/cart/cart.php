@@ -24,7 +24,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<th class="product-thumbnail">&nbsp;</th>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 			<th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th>
-			<th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
+			<!--th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th-->
 			<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
 		</tr>
 	</thead>
@@ -79,7 +79,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-quantity">
+					<!--td class="product-quantity">
 						<?php
 							if ( $_product->is_sold_individually() ) {
 								$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
@@ -94,7 +94,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key );
 						?>
-					</td>
+					</td-->
 
 					<td class="product-subtotal">
 						<?php
@@ -142,7 +142,24 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
 
 	<?php woocommerce_cart_totals(); ?>
-
+	
+	<?php
+		$args = array (
+			'page_id' => '240',
+		);
+		$delivery = new WP_Query( $args );
+		if ( $delivery->have_posts() ) {
+			while ( $delivery->have_posts() ) {
+				$delivery->the_post();
+				the_content();
+			}
+		} else {
+			// no posts found
+		}
+		// Restore original Post Data
+		wp_reset_postdata();	
+	?>
+	
 	<?php woocommerce_shipping_calculator(); ?>
 
 </div>
