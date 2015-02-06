@@ -330,6 +330,18 @@ function wpa83367_price_html( $price,$product ){
    }
 }
 
+add_filter( 'woocommerce_subscription_lengths', 'wooninja_custom_subscription_duration' );
+function wooninja_custom_subscription_duration( $ranges ) {
+	$ranges['week'][4] = '4 weeks';
+	$ranges['month'][1] = '1 month';
+	$ranges['month'][2] = '2 months';
+	$ranges['month'][3] = '3 months';
+	$ranges['month'][4] = '4 months';
+	$ranges['month'][5] = '5 months';
+	$ranges['month'][6] = '6 months';
+	return $ranges;
+}
+
 function wcsdp_get_available_payment_gateways( $available_gateways ) {
 	global $wp;
 
