@@ -133,7 +133,7 @@ function carousel() {
 		'description'		 => __( 'Homepage Carousel', 'bbb' ),
 		'labels'			  => $labels,
 		'supports'			=> array( 'title', 'excerpt', 'thumbnail', 'page-attributes' ),
-		'taxonomies'		  => array( 'category', 'post_tag' ),
+		'taxonomies'		  => array( ),
 		'hierarchical'		=> false,
 		'public'			  => true,
 		'show_ui'			 => true,
@@ -239,28 +239,30 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_d
 add_action( 'bbb_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-add_filter( 'woocommerce_product_tabs' , 'woocommerce_related_products_tab' );
-function woocommerce_related_products_tab( $tabs ) {
-	$tabs['related_products'] = array(
-		'title'	=> 'Related Products',
-		'priority' => 25,
-		'callback' => 'woocommerce_product_related_products_tab'
-	);
-	return $tabs;
-}
-// Related Products callback
-function woocommerce_product_related_products_tab() {
-do_action('growdev_after_single_product_summary');
-	do_action('bbb_after_single_product_summary');
-	echo do_shortcode('[related_products]');
-}
 
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 function woo_remove_product_tabs( $tabs ) {
-	unset( $tabs['description'] );
-	return $tabs;
+
+    unset( $tabs['description'] );      	// Remove the description tab
+    unset( $tabs['additional_information'] );  	// Remove the additional information tab
+
+    return $tabs;
+
 }
+
+add_action( 'init', 'custom_fix_thumbnail' );
+ 
+function custom_fix_thumbnail() {
+  add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
+	function custom_woocommerce_placeholder_img_src( $src ) {
+		$upload_dir = wp_upload_dir();
+		$uploads = untrailingslashit( $upload_dir['baseurl'] );
+		$src = $uploads . '/2015/02/comingsoon.png';
+		return $src;
+	}
+}
+
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
 function custom_override_checkout_fields( $fields ) {
@@ -273,6 +275,7 @@ function custom_override_checkout_fields( $fields ) {
 	 $fields['shipping']['shipping_postcode']['placeholder'] = 'Postcode';
 	 $fields['billing']['billing_state']['placeholder'] = 'County';
 	 $fields['billing']['billing_postcode']['placeholder'] = 'Postcode';
+     $fields['order']['order_comments']['placeholder'] = 'Notes about your order, such as special delivery instructions and preferred delivery days for subscriptions.';
 	 return $fields;
 }
 
@@ -294,8 +297,8 @@ function my_text_strings( $translated_text, $text, $domain ) {
 		case 'Booking Date' :
 			$translated_text = __( 'Delivery / Collection Date', 'woocommerce-bookings' );
 		break;
-		case 'Ship to a different address?' :
-			$translated_text = __( 'Is the delivery address different to the billing address?', 'woocommerce-bookings' );
+		case 'Sort by newness' :
+			$translated_text = __( 'Sort by date added', 'woocommerce' );
 		break;
 		case 'Proceed to Checkout' :
 			$translated_text = __( 'Checkout', 'woocommerce-bookings' );
@@ -305,6 +308,18 @@ function my_text_strings( $translated_text, $text, $domain ) {
 		break;
 		case 'You have no active subscriptions. Find your first subscription in the ' :
 			$translated_text = __( 'You have no active Bread Club orders. Find your first Bread Club subscription in the ', 'woocommerce-bookings' );
+		break;
+		case 'The maximum persons per group is %d' :
+			$translated_text = __( 'The maximum items per order is %d', 'woocommerce-bookings' );
+		break;
+		case 'The minimum persons per group is %d' :
+			$translated_text = __( 'The minimum items per order is %d', 'woocommerce-bookings' );
+		break;
+		case 'Persons are required - please enter the number of persons above' :
+			$translated_text = __( 'Items are required - please enter the number of items above', 'woocommerce-bookings' );
+		break;
+		case 'Out of stock' :
+			$translated_text = __( 'These are not currently available on line.  To order, call or text Phil on 07768 474350 before 8pm to see what is available the next day.', 'woocommerce-bookings' );
 		break;
 	}
 	return $translated_text;
@@ -342,23 +357,53 @@ function wooninja_custom_subscription_duration( $ranges ) {
 	return $ranges;
 }
 
-function wcsdp_get_available_payment_gateways( $available_gateways ) {
-	global $wp;
-
-	if ( class_exists( 'WC_Subscriptions_Cart' ) ) {
-		if ( WC_Subscriptions_Cart::cart_contains_subscription() || WC_Subscriptions_Cart::cart_contains_subscription_renewal() || ( is_checkout_pay_page() && WC_Subscriptions_Order::order_contains_subscription( $wp->query_vars['order-pay'] ) ) ) {
-			if ( isset( $available_gateways['cod'] ) ) {
-				unset( $available_gateways['cod'] );
-			}
-			if ( isset( $available_gateways['bacs'] ) ) {
-				unset( $available_gateways['bacs'] );
-			}
-		}
+add_action( 'woocommerce_after_customer_login_form', 'jk_login_message' );
+function jk_login_message() {
+    if ( get_option( 'woocommerce_enable_myaccount_registration' ) == 'yes' ) {
+	?>
+		<div class="woocommerce-info">
+			<p><?php _e( 'Returning customers login. New users register for next time so you can:' ); ?></p>
+			<ul>
+				<li><?php _e( 'View your order history' ); ?></li>
+				<li><?php _e( 'Check on your orders' ); ?></li>
+				<li><?php _e( 'Edit your addresses' ); ?></li>
+				<li><?php _e( 'Change your password' ); ?></li>
+			</ul>
+		</div>
+	<?php
 	}
-	return $available_gateways;
 }
-add_filter( 'woocommerce_available_payment_gateways', 'wcsdp_get_available_payment_gateways', 11 );
 
+function wcsdp_get_available_payment_gateways( $available_gateways ) {
+    if ( class_exists( 'WC_Subscriptions_Cart' ) ) {
+        if ( WC_Subscriptions_Cart::cart_contains_subscription() || WC_Subscriptions_Cart::cart_contains_subscription_renewal() || ( is_checkout_pay_page() && WC_Subscriptions_Order::order_contains_subscription( $wp->query_vars['order-pay'] ) ) ) {
+            if ( isset( $available_gateways['cod'] ) ) {
+                unset( $available_gateways['cod'] );
+            }
+            if ( isset( $available_gateways['bacs'] ) ) {
+                unset( $available_gateways['bacs'] );
+            }
+            if ( isset( $available_gateways['paypal'] ) ) {
+                unset( $available_gateways['paypal'] );
+            }
+            if ( isset( $available_gateways['s4wc'] ) ) {
+                unset( $available_gateways['s4wc'] );
+            }
+        }
+    }
+
+    $cart = WC()->cart->get_cart();
+    if ( ! empty( $cart ) ) {
+        foreach ( $cart as $key => $item ) {
+            if ( isset( $item['booking'] ) && isset( $available_gateways['gocardless'] ) ) {
+                //unset( $available_gateways['gocardless'] );
+            }
+        }
+    }
+
+    return $available_gateways;
+}
+add_filter( 'woocommerce_available_payment_gateways', 'wcsdp_get_available_payment_gateways' );
 
 add_action( 'dashboard_glance_items', 'my_add_cpt_to_dashboard' );
 
@@ -391,6 +436,34 @@ function my_add_cpt_to_dashboard() {
 		}
 		echo '<li class="page-count ' . $post_type->name . '-count">' . $output . '</td>';
 	}
+}
+
+function remove_footer_admin () {
+	echo '&copy; '. date('Y') . ' Book Bag Bakers. Site built by <a href="https://www.prydonian.digital">Mark Duwe</a>.';
+	echo '<style>#wp-admin-bar-updates,.update-plugins{display:none !important;}.category-adder {display: none !important;}</style>';
+}
+add_filter('admin_footer_text', 'remove_footer_admin');
+
+function theme_options_panel(){
+  add_menu_page('Book Bag Bakers', 'Book Bag Bakers', 'manage_options', 'bbb-admin', 'bbb_admin', 'dashicons-shield', 30);
+  add_submenu_page( 'bbb-admin', 'Email Signature Generator', 'Email Signature', 'manage_options', 'email-signature', 'bbb_email');
+  add_submenu_page( 'bbb-admin', 'Secure Password Generator', 'Password Generator', 'manage_options', 'password-generator', 'bbb_password');
+}
+add_action('admin_menu', 'theme_options_panel');
+
+function bbb_admin(){
+	echo '<div class="wrap">
+		<h2><i class="dashicons dashicons-shield"></i> Book Bag Bakers Admin</h2>
+		<p>You can generate your email signature or a secure password from here.</p>
+		<p><i class="dashicons dashicons-email-alt"></i> <a href="/wp-admin/admin.php?page=email-signature">Generate an email signature</a></p>
+		<p><i class="dashicons dashicons-admin-network"></i> <a href="/wp-admin/admin.php?page=password-generator">Generate a secure password</a></p>
+	</div>';
+}
+function bbb_email(){
+	include(get_template_directory().'/email-signature.php');
+}
+function bbb_password(){
+	include(get_template_directory().'/password-generator.php');
 }
 
 

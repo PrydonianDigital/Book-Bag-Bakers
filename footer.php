@@ -12,8 +12,11 @@
 </div>
 
 <footer class="row">
-	<div class="twelve columns">
-		&copy; <?php the_date('Y'); ?> Book Bag Bakers
+	<div class="nine columns">
+		&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> • <em><?php bloginfo('description'); ?></em>
+	</div>
+	<div class="three columns">
+		<small class="alignright">Site by <a href="http://prydonian.digital/" target="_blank">Prydonian Digital</a></small>
 	</div>
 </footer>
 

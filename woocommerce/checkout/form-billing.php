@@ -7,7 +7,11 @@
  * @version     2.1.2
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+/** @global WC_Checkout $checkout */
 ?>
 <div class="woocommerce-billing-fields">
 	<?php if ( WC()->cart->ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
@@ -29,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	<?php endforeach; ?>
 
 	<?php do_action('woocommerce_after_checkout_billing_form', $checkout ); ?>
-
+	
 	<?php if ( ! is_user_logged_in() && $checkout->enable_signup ) : ?>
 
 		<?php if ( $checkout->enable_guest_checkout ) : ?>
@@ -37,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<p class="form-row form-row-wide create-account">
 				<input class="input-checkbox" id="createaccount" <?php checked( ( true === $checkout->get_value( 'createaccount' ) || ( true === apply_filters( 'woocommerce_create_account_default_checked', false ) ) ), true) ?> type="checkbox" name="createaccount" value="1" /> <label for="createaccount" class="checkbox"><?php _e( 'Create an account?', 'woocommerce' ); ?></label>
 			</p>
-
+			
 		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_before_checkout_registration_form', $checkout ); ?>
@@ -61,6 +65,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
-
+		
 	<?php endif; ?>
 </div>

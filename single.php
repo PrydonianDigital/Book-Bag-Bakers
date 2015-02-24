@@ -1,30 +1,45 @@
 <?php get_header(); ?>
 
-<div class="row">
 
 	<div class="twelve columns" role="main">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-	<div <?php post_class('row'); ?>>
-		
-		<div class="twelve columns">
-			<?php the_post_thumbnail('carousel'); ?>
-			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-			<h5><span datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished" class="updated dtstart"><?php the_time( 'D, jS M, Y' ); ?> / by <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span></h5>
+	<div <?php post_class('blogPost'); ?>>
+		<div class="row" itemscope itemtype="http://schema.org/BlogPosting">
+			
+			<div class="twelve columns">
+				
+				<h3 itemprop="name headline" class="entry-title p-name"><?php the_title(); ?></h3>
+				<h5><span datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished" class="updated dtstart"><?php the_time( 'D, jS M, Y' ); ?> / by <span class="vcard author"><span class="fn"><?php the_author('nicename'); ?></span></span> <small>(<?php comments_number( 'no comments', '1 comment', '% comments' ); ?>)</small></h5>
+				
+			</div>
 			
 		</div>
 		
-	</div>
-	
-	<div class="row">
-		
-		<div class="twelve columns">
+		<div class="row">
 			
-			<?php the_content(); ?>
+			<div class="three columns">
+				
+				<?php the_post_thumbnail('article'); ?>
+				
+			</div>
+			
+			<div class="nine columns p-summary" itemprop="articleBody">
+				
+				<?php the_content(); ?>
+				
+			</div>
 			
 		</div>
-		
+		<div class="row" itemscope>
+			
+			<div class="twelve columns">
+				<hr />
+				<?php comments_template(); ?>
+				
+			</div>
+			
+		</div>
 	</div>
 	
 	<?php endwhile; ?>
@@ -33,6 +48,5 @@
 
 	</div>
 
-</div>
 
 <?php get_footer(); ?>

@@ -344,11 +344,11 @@ span.price, .woocommerce div.product p.price, .woocommerce #content div.product 
     box-shadow: 0 0 2px 0 #f7f6f7 inset;
     float: left;
     font-weight: 700;
-    height: 34px;
-    margin: 0;
+    height: 43px;
+    margin: 0 -4px 0 0;
     padding: 0;
     text-align: center;
-    width: 40px;
+    width: 60px;
 }
 .woocommerce #content .quantity .minus, .woocommerce #content .quantity .plus, .woocommerce .quantity .minus, .woocommerce .quantity .plus, .woocommerce-page #content .quantity .minus, .woocommerce-page #content .quantity .plus, .woocommerce-page .quantity .minus, .woocommerce-page .quantity .plus {
     background: -moz-linear-gradient(center top , #f7f6f7 0px, #e0dadf 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -536,6 +536,46 @@ form fieldset {
     margin-right: 20px;
     width: 20px;
 }
+abbr.required {
+	color: red;
+}
+
+p.demo_store {
+	padding: 10px 0;
+}
+.woocommerce a.button {
+	color: #111;
+	border: 1px solid #515151;
+}
+.woocommerce ul.products li.product .price .from, .woocommerce ul.products li.product .price .subscription-details, .titlePrice span.from, .titlePrice span.subscription-details {
+	display: none !important;
+}
+.woocommerce-cart .cart-collaterals .cart_totals table {
+	border-left: 1px solid #e5e5e5 !important;
+}
+.woocommerce-checkout .checkout .col-2 h3#ship-to-different-address {
+	line-height: 1 !important;
+}
+.woocommerce-checkout .checkout .col-2 h3#ship-to-different-address label {
+	display: inline !important;
+	line-height: 1 !important;
+}
+input#mailpoet_checkout_subscribe.input-checkbox.input {
+    float: left;
+    display: block;
+    width: auto;
+}
+.woocommerce ul.products li.product-cat-traditional .price, .woocommerce-page ul.products li.product-cat-traditional .price, .woocommerce-page div.product-cat-traditional div.titlePrice {
+	display: none !important;
+}
+#sidebar, .woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count, h3.page-title, .woocommerce .woocommerce-ordering {
+	display: none;
+}
+#mailpoet_checkout_field label {
+	font-weight: 600;
+	line-height: 1;
+}
+
 
 @media only screen and (min-width : 320px) and (max-width : 568px) {
 	.header h1 {

@@ -7,9 +7,13 @@
  * @version     2.2.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 ?>
 <div class="woocommerce-shipping-fields">
+
 	<?php if ( WC()->cart->needs_shipping_address() === true ) : ?>
 
 		<?php
@@ -24,16 +28,14 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 			}
 		?>
-
 		<h3 id="ship-to-different-address">
-			<label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
+			<label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Is the delivery address different to the billing address?', 'woocommerce' ); ?></label>
 			<input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
 		</h3>
-		
 		<p style="clear: both;">
 		<?php
 			$args = array (
-				'page_id' => '240',
+				'page_id' => '604',
 			);
 			$delivery = new WP_Query( $args );
 			if ( $delivery->have_posts() ) {
@@ -47,8 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			// Restore original Post Data
 			wp_reset_postdata();	
 		?>
-		</p>		
-
+		</p>
 		<div class="shipping_address">
 
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>

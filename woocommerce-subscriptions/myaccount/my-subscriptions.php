@@ -4,10 +4,10 @@
  */
 ?>
 
-<h3><?php _e( 'My Subscriptions', 'woocommerce-subscriptions' ); ?></h3>
+<h3><?php _e( 'My Bread Club', 'woocommerce-subscriptions' ); ?></h3>
 
 <?php if ( ! empty( $subscriptions ) ) : ?>
-<table class="shop_table my_account_subscriptions my_account_orders">
+<table class="shop_table shop_table_responsive my_account_subscriptions my_account_orders">
 
 	<thead>
 		<tr>
@@ -24,7 +24,7 @@
 	<?php foreach ( array_reverse( $subscriptions ) as $subscription_key => $subscription_details ) : ?>
 		<?php $order = new WC_Order( $subscription_details['order_id'] ); ?>
 		<tr class="order">
-			<td class="order-number" width="1%" data-title="<?php _e( 'Order', 'woocommerce-subscriptions' ); ?>">
+			<td class="order-number" data-title="<?php _e( 'Order', 'woocommerce-subscriptions' ); ?>">
 				<?php if ( method_exists( $order, 'get_view_order_url' ) ) : // WC 2.1+ ?>
 					<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>"><?php echo $order->get_order_number(); ?></a>
 				<?php else : ?>
@@ -114,6 +114,6 @@
 
 <?php else : ?>
 
-	<p><?php printf( __( 'You have no active subscriptions. Find your first subscription in the %sstore%s.', 'woocommerce-subscriptions' ), '<a href="' . get_permalink( woocommerce_get_page_id( 'shop' ) ) . '">', '</a>' ); ?></p>
+	<p><?php printf( __( 'You have no active Bread Club subscriptions. Find your first subscription in the %sstore%s.', 'woocommerce-subscriptions' ), '<a href="' . apply_filters( 'woocommerce_subscriptions_message_store_url', get_permalink( woocommerce_get_page_id( 'shop' ) ) ) . '">', '</a>' ); ?></p>
 
 <?php endif;
