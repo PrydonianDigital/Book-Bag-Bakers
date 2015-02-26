@@ -419,6 +419,7 @@ p.stock {
 	font-size: 1rem;
 }
 .picker {
+	width: 98%;
 }
 .picker:after {
 	content: "";

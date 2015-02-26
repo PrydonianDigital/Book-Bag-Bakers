@@ -84,19 +84,19 @@ $j(function() {
 		return daysToAdd;
 	}	
 	
-	$j('.input-text.addon.addon-custom').datepicker({
-		beforeShowDay: function(day){
-             if (day.getDay()<2 || day.getDay()>4){
-                return [false, ""];
-            }
-            return noWeekendsOrHolidays(day);
-        },
-		minDate : dateMin,
-		defaultDate: +1,
-		firstDay: 1,
-		changeFirstDay: true,
-		dateFormat: "DD, dd MM yy"
-	});
+//	$j('.input-text.addon.addon-custom').datepicker({
+//		beforeShowDay: function(day){
+//             if (day.getDay()<2 || day.getDay()>4){
+//                return [false, ""];
+//            }
+//            return noWeekendsOrHolidays(day);
+//        },
+//		minDate : dateMin,
+//		defaultDate: +1,
+//		firstDay: 1,
+//		changeFirstDay: true,
+//		dateFormat: "DD, dd MM yy"
+//	});
 	
 	// smooth scroll
 	$j('a[href*=#]:not([href=#])').click(function() {
