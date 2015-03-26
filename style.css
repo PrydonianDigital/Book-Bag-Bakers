@@ -573,7 +573,7 @@ input#mailpoet_checkout_subscribe.input-checkbox.input {
 	display: none;
 }
 #mailpoet_checkout_field label {
-	font-weight: 600;
+	font-weight: 300;
 	line-height: 1;
 }
 

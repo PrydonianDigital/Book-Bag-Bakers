@@ -4,6 +4,8 @@ var $j = jQuery.noConflict();
 
 $j(function() {
 	
+	$j('#mailpoet_checkout_subscribe').prop('checked', true);
+	
 	$j('.contact-form div').addClass('field');
 	
 	$j('.contact-form input').addClass('input');
