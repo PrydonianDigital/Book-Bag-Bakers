@@ -1,11 +1,11 @@
-/*  
+/*
 Theme Name: Book Bag Bakers
 Theme URI: http://www.bookbagbakers.co.uk
 Description: WordPress theme and shop for Book Bag Bakers
 Version: 1
 Author: Mark Duwe
 Author URI: http://www.prydonian.digital
-Tags: 
+Tags:
 License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
 License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 */
@@ -134,7 +134,7 @@ footer {
     margin-bottom: 0;
 }
 .navbar ul {
-	line-height: 
+	line-height:
 }
 .navbar a {
 	text-decoration: none;
@@ -144,11 +144,11 @@ footer {
 }
 .navbar li .dropdown ul > li a {
 	background: #111;
-	color: #fff;	
+	color: #fff;
 }
 .gumby-no-touch .navbar li .dropdown ul > li a:hover {
 	background: #868d92;
-	color: #fff;	
+	color: #fff;
 }
 .navbar .menu {
 	float: left;
@@ -198,7 +198,7 @@ a.cart:hover {
 	opacity: 0;
 }
 .ic_caption {
-	position: absolute;	
+	position: absolute;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
@@ -540,7 +540,9 @@ form fieldset {
 abbr.required {
 	color: red;
 }
-
+.p-summary {
+	padding-bottom: 10px;
+}
 p.demo_store {
 	padding: 10px 0;
 }
