@@ -19,17 +19,15 @@
 		<div class="row">
 
 			<?php if ( has_post_thumbnail() ) { ?>
-			<div class="three columns">
+			<div class="five columns">
 
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article'); ?></a>
+				<?php the_post_thumbnail('full'); ?>
 
 			</div>
 
-			<div class="nine columns p-summary" itemprop="articleBody">
+			<div class="seven columns p-summary" itemprop="articleBody">
 
-				<?php the_excerpt(); ?>
-
-				<div class="woocommerce"><a href="<?php the_permalink(); ?>" class="button wc-forward">Read...</a></div>
+				<?php the_content(); ?>
 
 			</div>
 			<?php } else { ?>
